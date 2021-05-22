@@ -1,7 +1,7 @@
-const { dc, MessageEmbed } = require('discord.js')
-const db = require('quick.db')
-const Settings = require('../Settings/Settings.json')
-const Other = require('../Settings/Other.json')
+const { dc, MessageEmbed } = require('discord.js');
+const db = require('quick.db');
+const Settings = require('../Settings/Settings.json');
+const Other = require('../Settings/Other.json');
 exports.run = async (client, message, args) => {
   
   if (!message.member.hasPermission("ADMINISTRATOR") && !message.member.roles.cache.has(Settings.Roles.Registerer)) return message.channel.send(new MessageEmbed().setAuthor("Yetersiz Yetki").setDescription(`**\`»\`** Bu komutu kullanabilmek için \`Admin\` veya \`Kayıt Sorumlusu\` yetkisine sahip olman gerekmekte.`).setColor(Settings.Colors.Red)).then(x => x.delete({ timeout: 6500 }));
